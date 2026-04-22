@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rehaan Rajendrakumar – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F5F0;
+      --ink: #1A1A1A;
+      --accent: #2D6A4F;
+      --accent-light: #D8F3DC;
+      --muted: #6B6B6B;
+      --card-bg: #FFFFFF;
+      --border: #E5E0D8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(248,245,240,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      padding: 160px 4rem 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.8rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover { background: #1f4f38; transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .skill-pill {
+      display: flex; align-items: center; gap: 0.8rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      animation: slideIn 0.5s ease both;
+    }
+    .skill-pill:nth-child(1) { animation-delay: 0.1s; }
+    .skill-pill:nth-child(2) { animation-delay: 0.2s; margin-left: 2rem; }
+    .skill-pill:nth-child(3) { animation-delay: 0.3s; }
+    .skill-pill:nth-child(4) { animation-delay: 0.4s; margin-left: 2rem; }
+    .skill-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* SECTION TITRE */
+    .section-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+    }
+    .section-header p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* PROJETS */
+    #projets { padding: 6rem 4rem; }
+    .projects-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .project-emoji {
+      font-size: 2rem;
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent-light);
+      border-radius: 0.75rem;
+    }
+    .project-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+    }
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 1rem;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .project-arrow {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-top: 0.5rem;
+      transition: transform 0.2s;
+    }
+    .project-card:hover .project-arrow { transform: translateX(4px); }
+
+    /* À PROPOS */
+    #apropos {
+      background: var(--ink);
+      color: white;
+      padding: 6rem 4rem;
+    }
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-inner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .about-inner h2 em { font-style: italic; color: #74C69D; }
+    .about-inner p {
+      color: #AAAAAA;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .stat-box .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: #74C69D;
+    }
+    .stat-box .label {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+
+    /* CONTACT */
+    #contact {
+      padding: 6rem 4rem;
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-inner h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-inner p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 4rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 120px 1.5rem 60px; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-visual { display: none; }
+      #projets, #apropos, #contact { padding: 4rem 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .section-header { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div></div>
+  <div class="nav-links">
+    <a href="#projets">Projets</a>
+    <a href="#apropos">À propos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="hero-tag">Disponible — Septembre 2026</span>
+    <h1>Rehaan<br><em>Rajendrakumar</em></h1>
+    <p class="hero-desc">
+      Étudiant en 2ᵉ année à l'ESILV. Je fais des projets personnels pour développer mes compétences en Data et IA.
+    </p>
+    <div class="hero-btns">
+      <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+    </div>
+    <div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); line-height: 2;">
+      <div>06 10 02 77 57</div>
+      <div>rajendrakumar.rehaan@gmail.com</div>
+      <div><a href="https://www.linkedin.com/in/rehaan-rajendrakumar" target="_blank" style="color: var(--accent); text-decoration: none;">LinkedIn</a></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="skill-pill"><span>Python : Pandas, NumPy, Seaborn</span></div>
+    <div class="skill-pill"><span>Power BI, DAX, Power Query</span></div>
+    <div class="skill-pill"><span>SQL et bases relationnelles</span></div>
+    <div class="skill-pill"><span>C++, C#, API HTTP</span></div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="section-header">
+    <h2>Mes projets</h2>
+    <p>Des projets concrets, construits par curiosité et envie d'apprendre.</p>
+  </div>
+  <div class="projects-grid">
+
+    <a href="projet-powerbi.html" class="project-card">
+      <h3>Dashboard Power BI Manchester City</h3>
+      <p>Analyse de 9 saisons de données de matchs et joueurs. Dashboard interactif 3 pages avec +15 visualisations et mesures DAX personnalisées.</p>
+      <div class="project-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">Power Query</span>
+      </div>
+    </a>
+
+    <a href="projet-airbnb.html" class="project-card">
+      <h3>Analyse Airbnb Paris</h3>
+      <p>Collecte, nettoyage et analyse exploratoire des logements Airbnb à Paris. Visualisation des tendances du marché locatif.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">SQL</span>
+      </div>
+    </a>
+
+    <a href="projet-robot.html" class="project-card">
+      <h3>Robot Sumo Contrôle à distance</h3>
+      <p>Serveur web embarqué sur Arduino pour contrôler un robot Sumo via WiFi. Interface web + API HTTP REST.</p>
+      <div class="project-tags">
+        <span class="tag">C++</span>
+        <span class="tag">HTML/JS</span>
+        <span class="tag">API REST</span>
+      </div>
+    </a>
+
+
+
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="about-inner">
+    <div>
+      <h2>Un peu plus<br>sur <em>moi</em></h2>
+      <p>Je suis actuellement en 2ᵉ année de prépa intégrée à l'ESILV. En septembre 2026, j'intègrerai la 1ère année du cycle ingénieur en alternance dans la majeure Data & IA.</p>
+      <p>Mon intérêt pour la data vient du lycée, où j'ai développé ma première application en Python et SQL pour permettre aux élèves de partager les sujets de Grand Oral. C'est là que j'ai vraiment accroché.</p>
+      <p>Depuis, j'ai continué à progresser sur mes projets personnels et je recherche une alternance en Data et IA pour mettre en pratique ces compétences dans un environnement professionnel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <h2>Travaillons ensemble</h2>
+    <p>Je suis à la recherche d'une alternance de 3 ans en Data à partir de septembre 2026. N'hésitez pas à me contacter.</p>
+  </div>
+</section>
+
+
+
+</body>
+</html>

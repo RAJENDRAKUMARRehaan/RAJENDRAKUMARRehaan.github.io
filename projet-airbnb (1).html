@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analyse Airbnb Paris – Rehaan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F8F5F0; --ink: #1A1A1A; --accent: #2D6A4F;
+      --accent-light: #D8F3DC; --muted: #6B6B6B;
+      --card-bg: #FFFFFF; --border: #E5E0D8;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(248,245,240,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; margin-left: auto; }
+    .back-link:hover { color: var(--accent); }
+
+    .project-hero { padding: 140px 4rem 60px; max-width: 860px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .project-tag {
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2rem; margin-bottom: 1rem;
+    }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; }
+    .meta { display: flex; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .meta-item { font-size: 0.85rem; color: var(--muted); }
+    .meta-item strong { color: var(--ink); display: block; font-size: 0.9rem; }
+
+    .project-body { max-width: 860px; margin: 0 auto; padding: 0 4rem 6rem; }
+    .project-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 2.5rem 0 1rem; }
+    .project-body p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .project-body ul { margin: 0.5rem 0 1rem 1.2rem; }
+    .project-body ul li { color: var(--muted); line-height: 1.8; font-size: 0.95rem; margin-bottom: 0.4rem; }
+
+    .highlight-box {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 0.5rem; padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .highlight-box p { margin: 0; color: var(--ink); font-size: 0.95rem; }
+
+    .code-block {
+      background: #1A1A1A; color: #A8D8A8;
+      border-radius: 0.75rem; padding: 1.5rem 2rem;
+      font-family: 'Courier New', monospace; font-size: 0.82rem;
+      line-height: 1.7; margin: 0.5rem 0 1.5rem; overflow-x: auto;
+      white-space: pre;
+    }
+    .code-block.sql { color: #74C69D; }
+    .code-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.4rem; margin-top: 2rem;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+    .tag { font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 1rem; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+
+    .back-btn {
+      display: inline-block; margin-top: 2rem;
+      padding: 0.85rem 1.8rem; border-radius: 0.5rem;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; background: var(--accent); color: white; transition: all 0.2s;
+    }
+    .back-btn:hover { background: #1f4f38; transform: translateY(-2px); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div></div>
+  <a href="index.html" class="back-link">← Retour</a>
+</nav>
+
+<div class="project-hero">
+  <div class="breadcrumb"><a href="index.html">Portfolio</a> / Projet</div>
+  <span class="project-tag">Analyse de données</span>
+  <h1>Analyse des<br>logements Airbnb<br>à Paris</h1>
+  <div class="meta">
+    <div class="meta-item"><strong>Date</strong>Mars 2026</div>
+    <div class="meta-item"><strong>Outils</strong>Python, Pandas, Matplotlib, Seaborn, SQL</div>
+    <div class="meta-item"><strong>Type</strong>Projet personnel</div>
+  </div>
+</div>
+
+<div class="project-body">
+
+  <h2>Contexte</h2>
+  <p>Ce projet analyse les données publiques des logements Airbnb à Paris pour comprendre les tendances du marché locatif court terme. L'objectif était de mettre en pratique la collecte, le nettoyage et l'analyse de données réelles avec Python et SQL.</p>
+
+  <h2>Ce que j'ai fait</h2>
+  <ul>
+    <li>Collecte des données depuis le dataset public Inside Airbnb</li>
+    <li>Nettoyage complet avec Pandas : valeurs manquantes, outliers, conversion des types</li>
+    <li>Filtrage sur les prix sous le 99e percentile (2 000 euros) et séjours courts (moins de 30 nuits)</li>
+    <li>Import dans une base MySQL locale et interrogation via des requêtes SQL</li>
+    <li>Analyse exploratoire et visualisation avec Matplotlib et Seaborn</li>
+  </ul>
+
+  <h2>Visualisations</h2>
+  <img src="airbnb.png" alt="Analyse Airbnb Paris" style="width:100%; border-radius:0.75rem; border:1px solid #E5E0D8; margin: 1rem 0 2rem;">
+
+  <h2>Analyse</h2>
+  <p>La première chose qui saute aux yeux, c'est l'écart entre la médiane et la moyenne des prix : 161 euros contre 236 euros. Cet écart montre que le marché est tiré vers le haut par une minorité de logements très chers. La médiane est bien plus représentative du prix réel auquel la majorité des voyageurs font face.</p>
+
+  <p>Sans surprise, le quartier de l'Élysée arrive en tête des quartiers les plus chers, suivi par Louvre et Luxembourg. Ces quartiers concentrent les logements entiers qui représentent plus de 80% de l'offre dans le top 5, ce qui explique en partie les prix élevés.</p>
+
+  <p>Un résultat inattendu : les logements avec une forte disponibilité annuelle (271 à 365 jours) affichent les prix moyens les plus élevés. On pourrait penser que les hôtes professionnels baisseraient leurs prix pour maximiser le taux d'occupation, mais les données montrent l'inverse. Ce sont souvent des logements de qualité supérieure qui peuvent rester chers tout en étant disponibles.</p>
+
+  <p>Enfin, le nombre d'avis n'a quasiment aucun impact sur le prix moyen. Que le logement ait 0 ou 50 avis, le prix reste autour de 200 à 230 euros. La réputation ne semble pas être un levier de tarification significatif sur ce marché.</p>
+
+  <div class="highlight-box">
+    <p>Ce projet m'a appris à travailler sur des données réelles et imparfaites avec des valeurs aberrantes, des colonnes mal renseignées et des distributions très asymétriques. C'est bien plus formateur que des données propres de tutoriels.</p>
+  </div>
+
+  <h2>Code Python</h2>
+
+  <div class="code-label">Nettoyage et préparation des données</div>
+  <div class="code-block">df = pd.read_csv("data/listings.csv", dtype=str, engine="python")
+
+# conversion en numérique
+cols_numeric = ["price", "minimum_nights", "number_of_reviews",
+                "reviews_per_month", "availability_365"]
+for col in cols_numeric:
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+# filtrage : prix sous le 99e percentile et séjours courts
+df_clean = df[df["price"] <= 2000]
+df_analysis = df_clean[df_clean["minimum_nights"] <= 30]
+
+# export et import MySQL
+df_analysis.to_csv("data/listings_clean.csv", index=False)
+df_analysis.to_sql("listings", con=engine, if_exists="replace", index=False)</div>
+
+  <div class="code-label">Visualisations</div>
+  <div class="code-block">fig, axes = plt.subplots(3, 2, figsize=(16, 18))
+fig.suptitle("Analyse du marché Airbnb à Paris", fontsize=16, fontweight="bold")
+
+# distribution des prix
+sns.histplot(df["price"], bins=50, color=COULEUR_PRINCIPALE, ax=axes[0, 0])
+axes[0, 0].axvline(df["price"].median(), linestyle="--",
+    label=f'Médiane : {df["price"].median():.0f}€')
+axes[0, 0].axvline(df["price"].mean(), linestyle="--",
+    label=f'Moyenne : {df["price"].mean():.0f}€')
+
+# top 15 quartiers les plus chers
+top_quartiers = df.groupby("neighbourhood")["price"].mean()\
+    .sort_values(ascending=False).head(15)
+sns.barplot(x=top_quartiers.values, y=top_quartiers.index, ax=axes[1, 0])
+
+# prix par disponibilité
+df["dispo_cat"] = pd.cut(df["availability_365"],
+    bins=[0, 90, 180, 270, 365],
+    labels=["0-90j", "91-180j", "181-270j", "271-365j"])
+dispo_prix = df.groupby("dispo_cat", observed=True)["price"].mean()
+sns.barplot(x=dispo_prix.index, y=dispo_prix.values, ax=axes[1, 1])</div>
+
+  <h2>Requêtes SQL</h2>
+
+  <div class="code-label">Prix moyen par type de logement</div>
+  <div class="code-block sql">SELECT room_type, ROUND(AVG(price), 2) AS prix_moyen
+FROM listings
+GROUP BY room_type
+ORDER BY AVG(price) DESC;</div>
+
+  <div class="code-label">Top 10 quartiers les plus chers</div>
+  <div class="code-block sql">SELECT neighbourhood,
+       ROUND(AVG(price), 2) AS prix_moyen,
+       COUNT(*) AS nombre_logements
+FROM listings
+GROUP BY neighbourhood
+ORDER BY AVG(price) DESC
+LIMIT 10;</div>
+
+  <div class="code-label">Analyse par catégorie de prix</div>
+  <div class="code-block sql">SELECT
+  CASE
+    WHEN price < 100 THEN 'Bas (< 100 euros)'
+    WHEN price < 200 THEN 'Moyen (100-200 euros)'
+    WHEN price < 400 THEN 'Élevé (200-400 euros)'
+    ELSE 'Premium (> 400 euros)'
+  END AS categorie_prix,
+  ROUND(AVG(availability_365), 2) AS disponibilite_moyenne,
+  COUNT(*) AS nombre_logements
+FROM listings
+GROUP BY categorie_prix
+ORDER BY MIN(price);</div>
+
+  <div class="code-label">Prix par quartier et type de logement (top 5)</div>
+  <div class="code-block sql">SELECT neighbourhood, room_type,
+       ROUND(AVG(price), 2) AS prix_moyen
+FROM listings
+WHERE neighbourhood IN ('Élysée','Louvre','Luxembourg','Palais-Bourbon','Passy')
+GROUP BY neighbourhood, room_type
+ORDER BY AVG(price) DESC;</div>
+
+  <div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">Pandas</span>
+    <span class="tag">Matplotlib</span>
+    <span class="tag">Seaborn</span>
+    <span class="tag">SQL</span>
+    <span class="tag">MySQL</span>
+  </div>
+
+  <a href="index.html" class="back-btn">← Retour au portfolio</a>
+</div>
+
+</body>
+</html>
