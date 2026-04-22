@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robot Sumo – Rehaan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F8F5F0; --ink: #1A1A1A; --accent: #2D6A4F;
+      --accent-light: #D8F3DC; --muted: #6B6B6B;
+      --card-bg: #FFFFFF; --border: #E5E0D8;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(248,245,240,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-link { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; margin-left: auto; }
+    .back-link:hover { color: var(--accent); }
+    .project-hero { padding: 140px 4rem 60px; max-width: 860px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .project-tag {
+      display: inline-block; background: var(--accent-light); color: var(--accent);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 2rem; margin-bottom: 1rem;
+    }
+    h1 { font-family: 'DM Serif Display', serif; font-size: 3rem; line-height: 1.15; margin-bottom: 1.5rem; }
+    .meta { display: flex; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .meta-item { font-size: 0.85rem; color: var(--muted); }
+    .meta-item strong { color: var(--ink); display: block; font-size: 0.9rem; }
+    .project-body { max-width: 860px; margin: 0 auto; padding: 0 4rem 6rem; }
+    .project-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 2.5rem 0 1rem; }
+    .project-body p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .project-body ul { margin: 0.5rem 0 1rem 1.2rem; }
+    .project-body ul li { color: var(--muted); line-height: 1.8; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .highlight-box {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 0.5rem; padding: 1.5rem 2rem; margin: 2rem 0;
+    }
+    .highlight-box p { margin: 0; color: var(--ink); font-size: 0.95rem; }
+    .code-block {
+      background: #1A1A1A; color: #74C69D;
+      border-radius: 0.75rem; padding: 1.5rem 2rem;
+      font-family: 'Courier New', monospace; font-size: 0.82rem;
+      line-height: 1.7; margin: 0.5rem 0 1.5rem; overflow-x: auto;
+      white-space: pre;
+    }
+    .code-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.4rem; margin-top: 2rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+    .tag { font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 1rem; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+    .back-btn {
+      display: inline-block; margin-top: 2rem;
+      padding: 0.85rem 1.8rem; border-radius: 0.5rem;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; background: var(--accent); color: white; transition: all 0.2s;
+    }
+    .back-btn:hover { background: #1f4f38; transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-hero, .project-body { padding-left: 1.5rem; padding-right: 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div></div>
+  <a href="index.html" class="back-link">← Retour</a>
+</nav>
+
+<div class="project-hero">
+  <div class="breadcrumb"><a href="index.html">Portfolio</a> / Projet</div>
+  <span class="project-tag">Développement embarqué</span>
+  <h1>Robot Sumo<br>Contrôle à distance</h1>
+  <div class="meta">
+    <div class="meta-item"><strong>Date</strong>2025 – 2026</div>
+    <div class="meta-item"><strong>Outils</strong>C++, HTML, JavaScript, Arduino</div>
+    <div class="meta-item"><strong>Type</strong>Projet ESILV</div>
+  </div>
+</div>
+
+<div class="project-body">
+
+  <h2>Contexte</h2>
+  <p>Dans le cadre d'un projet à l'ESILV, j'ai développé un robot Sumo autonome capable de détecter et pousser ses adversaires hors du ring. Pour aller plus loin, j'ai ajouté un système de contrôle à distance via WiFi avec un serveur web embarqué directement sur l'Arduino.</p>
+
+  <h2>Ce que j'ai développé</h2>
+  <ul>
+    <li>Serveur HTTP embarqué sur Arduino UNO R4 WiFi</li>
+    <li>Page HTML générée directement par l'Arduino et accessible depuis n'importe quel navigateur sur le réseau</li>
+    <li>Contrôle des moteurs et du servo via des boutons ou le clavier</li>
+    <li>Parsing manuel des requêtes HTTP pour extraire les commandes reçues</li>
+  </ul>
+
+  <h2>Code complet</h2>
+
+  <div class="code-label">Serveur web et contrôle du robot</div>
+  <div class="code-block">#include &lt;WiFiS3.h&gt;
+#include &lt;Servo.h&gt;
+
+const char* WIFI_SSID = "nom_du_reseau";
+const char* WIFI_PASS = "mot_de_passe";
+
+WiFiServer server(80);
+Servo monServo;
+
+// Broches moteur A
+const int PWMA = 3;
+const int AIN1 = 4;
+const int AIN2 = 2;
+
+// Broches moteur B
+const int PWMB = 9;
+const int BIN1 = 7;
+const int BIN2 = 8;
+
+// Servo et vitesse
+const int SERVO_PIN = 6;
+int angleServo = 90;
+const int VITESSE = 180;
+const int STBY = 5;
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(PWMA, OUTPUT); pinMode(AIN1, OUTPUT); pinMode(AIN2, OUTPUT);
+  pinMode(PWMB, OUTPUT); pinMode(BIN1, OUTPUT); pinMode(BIN2, OUTPUT);
+  pinMode(STBY, OUTPUT);
+  digitalWrite(STBY, HIGH);
+
+  stopMoteurs();
+  monServo.attach(SERVO_PIN);
+  monServo.write(angleServo);
+
+  // Connexion au WiFi
+  Serial.println("Connexion WiFi...");
+  while (WiFi.begin(WIFI_SSID, WIFI_PASS) != WL_CONNECTED) {
+    delay(2000);
+  }
+  Serial.print("IP du robot : ");
+  Serial.println(WiFi.localIP());
+  server.begin();
+}
+
+void loop() {
+  WiFiClient client = server.available();
+  if (!client) return;
+
+  // Lecture de la requête HTTP
+  String request = "";
+  while (client.connected()) {
+    if (client.available()) {
+      char c = client.read();
+      request += c;
+      if (request.endsWith("\r\n\r\n")) break;
+    }
+  }
+
+  // Commandes moteurs
+  if      (request.indexOf("GET /moteurA")   >= 0) { moteurAAvant(VITESSE); stopMoteursB(); }
+  else if (request.indexOf("GET /moteurB")   >= 0) { stopMoteursA(); moteurBAvant(VITESSE); }
+  else if (request.indexOf("GET /deux")      >= 0) { moteurAAvant(VITESSE); moteurBAvant(VITESSE); }
+  else if (request.indexOf("GET /different") >= 0) { moteurAAvant(100); moteurBAvant(220); }
+  else if (request.indexOf("GET /stop")      >= 0) { stopMoteurs(); }
+
+  // Commandes servo
+  else if (request.indexOf("GET /servoGauche") >= 0) {
+    angleServo = max(0, angleServo - 10);
+    monServo.write(angleServo);
+  }
+  else if (request.indexOf("GET /servoDroite") >= 0) {
+    angleServo = min(180, angleServo + 10);
+    monServo.write(angleServo);
+  }
+  else if (request.indexOf("GET /servoCentre") >= 0) {
+    angleServo = 90;
+    monServo.write(angleServo);
+  }
+
+  // Page HTML envoyée au navigateur
+  client.println("HTTP/1.1 200 OK");
+  client.println("Content-Type: text/html; charset=UTF-8");
+  client.println("Connection: close");
+  client.println();
+  client.println("&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;");
+  client.println("&lt;meta charset='UTF-8'&gt;");
+  client.println("&lt;style&gt;body{font-family:Arial;text-align:center;margin-top:30px;}");
+  client.println("button{width:240px;height:55px;font-size:18px;margin:8px;}&lt;/style&gt;");
+  client.println("&lt;script&gt;");
+  client.println("document.addEventListener('keydown',function(e){");
+  client.println("if(e.key=='a') window.location='/moteurA';");
+  client.println("if(e.key=='z') window.location='/moteurB';");
+  client.println("if(e.key=='e') window.location='/deux';");
+  client.println("if(e.key=='s') window.location='/stop';");
+  client.println("if(e.key=='ArrowLeft')  window.location='/servoGauche';");
+  client.println("if(e.key=='ArrowRight') window.location='/servoDroite';");
+  client.println("if(e.key=='ArrowDown')  window.location='/servoCentre';");
+  client.println("});&lt;/script&gt;&lt;/head&gt;&lt;body&gt;");
+  client.println("&lt;h1&gt;Controle Robot WiFi&lt;/h1&gt;");
+  client.println("&lt;p&gt;&lt;a href='/moteurA'&gt;&lt;button&gt;Moteur A&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/moteurB'&gt;&lt;button&gt;Moteur B&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/deux'&gt;&lt;button&gt;Deux moteurs&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/stop'&gt;&lt;button&gt;STOP&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;Angle servo : " + String(angleServo) + "°&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/servoGauche'&gt;&lt;button&gt;Servo Gauche&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/servoDroite'&gt;&lt;button&gt;Servo Droite&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;p&gt;&lt;a href='/servoCentre'&gt;&lt;button&gt;Servo Centre&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+  client.println("&lt;/body&gt;&lt;/html&gt;");
+
+  delay(10);
+  client.stop();
+}
+
+// Fonctions moteurs
+void moteurAAvant(int v) { digitalWrite(AIN1,HIGH); digitalWrite(AIN2,LOW);  analogWrite(PWMA,v); }
+void moteurBAvant(int v) { digitalWrite(BIN1,HIGH); digitalWrite(BIN2,LOW);  analogWrite(PWMB,v); }
+void stopMoteursA()      { analogWrite(PWMA,0); digitalWrite(AIN1,LOW); digitalWrite(AIN2,LOW); }
+void stopMoteursB()      { analogWrite(PWMB,0); digitalWrite(BIN1,LOW); digitalWrite(BIN2,LOW); }
+void stopMoteurs()       { stopMoteursA(); stopMoteursB(); }</div>
+
+  <div class="highlight-box">
+    <p>Ce projet m'a permis de comprendre comment fonctionne le protocole HTTP en pratique, comment un navigateur communique avec un serveur, et comment embarquer tout ce système sur un microcontrôleur avec des ressources très limitées.</p>
+  </div>
+
+  <div class="tags">
+    <span class="tag">C++</span>
+    <span class="tag">Arduino</span>
+    <span class="tag">HTML</span>
+    <span class="tag">JavaScript</span>
+    <span class="tag">WiFi embarqué</span>
+    <span class="tag">HTTP</span>
+  </div>
+
+  <a href="index.html" class="back-btn">← Retour au portfolio</a>
+</div>
+
+</body>
+</html>
